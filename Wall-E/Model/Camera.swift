@@ -19,7 +19,6 @@ class Camera {
     
     init?(dictionary: [String: Any]) {
         guard let name = dictionary[Keys.name.rawValue] as? String else { return nil }
-        
         self.cameraName = name
     }
 }

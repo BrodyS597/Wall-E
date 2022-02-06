@@ -18,7 +18,7 @@ class Photo {
     
     init?(dictionary: [String: Any]) {
         guard let photoURL = dictionary[PhotoKeys.photoURL.rawValue] as? String,
-        let cameraDict = dictionary[PhotoKeys.camera.rawValue] as? [String: Any],
+              let cameraDict = dictionary[PhotoKeys.camera.rawValue] as? [String: Any],
               let camera = Camera(dictionary: cameraDict) else { return nil }
         
         self.photoURL = photoURL

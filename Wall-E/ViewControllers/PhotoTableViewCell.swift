@@ -8,16 +8,19 @@
 import UIKit
 
 class PhotoTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    // MARK: - IBOutlets
+    @IBOutlet weak var cameraNameLabel: UILabel!
+    @IBOutlet weak var roverImageView: UIImageView!
+    
+    func updateViews(photo: Photo) {
+        cameraNameLabel.text = photo.camera.cameraName
+        NetworkController.fetchImage(from: photo.photoURL) { roverImage in
+            
+            DispatchQueue.main.async {
+                self.roverImageView.image = roverImage
+                
+            }
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
